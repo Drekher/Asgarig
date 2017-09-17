@@ -1,15 +1,14 @@
 <footer>
-		<div class="container">
-			<div class="row">
-				<div class="copyright">
-					<div class="col-xs-12 col-md-12">
-						Asgarig v0.1 - Tous droits reservés
-					</div>	
+	<div class="container">
+		<div class="row">
+			<div class="copyright">
+				<div class="col-xs-12 col-md-12">Asgarig v0.1 - Tous droits reservï¿½s
 				</div>
 			</div>
 		</div>
-		</footer>
+	</div>
+</footer>
 
-	
-	</body>	
+
+</body>
 </html>

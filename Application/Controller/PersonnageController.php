@@ -7,19 +7,39 @@ use Core\Model\ORM;
 
 class PersonnageController extends AppController
 {
-
-    public function index()
+    
+    private $personnage;
+    
+    function __construct()
     {
         DbFactory::ORMFactory();
-        $personnage = ORM::for_table('view_personnage')
+        $this->personnage = ORM::for_table('view_personnage')->where('nom', $_SESSION['compte'])->find_one();
+    }
+    
+    
+    public function index()
+    {
         
-        ->where('nom', $_SESSION['compte'])
-        ->find_one();
         $this->render('Personnage/index', [
-            'personnage' => $personnage
+            'personnage' => $this->personnage
         ]);
     }
     
+    public function fichepersonnage()
+    {
+        $this->render('Personnage/index', [
+            'personnage' => $this->personnage
+        ]);
+    }
+
+    public static function hasPersonnage($information)
+    {
+        if (empty($information['personnage']->idPersonnage)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }
 
 

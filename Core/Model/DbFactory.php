@@ -4,24 +4,26 @@ namespace Core\Model;
 class DbFactory
 {
 
-    public static function ORMFactory() {
+    public static function ORMFactory()
+    {
         
-        include(RACINE_INC.'/include/connexion.inc.php');
+        // fichier a crï¿½er soit mï¿½me.
+        include (RACINE_INC . '/include/connexion.inc.php');
         
-        # Initialisation de Idiorm
-        ORM::configure('mysql:host='.DBHOST.';dbname='.DBNAME);
+        // Initialisation de Idiorm
+        ORM::configure('mysql:host=' . DBHOST . ';dbname=' . DBNAME);
         ORM::configure('username', DBUSERNAME);
         ORM::configure('password', DBPASSWORD);
         
         /**
-         * Configuration de la clé primaire de chaque table
-         * Cette configuration n'est nécessaire que si
-         * les clé primairesd sont différentes de 'id'
+         * Configuration de la clï¿½ primaire de chaque table
+         * Cette configuration n'est nï¿½cessaire que si
+         * les clï¿½ primairesd sont diffï¿½rentes de 'id'
          */
         
         ORM::configure('id_column_overrides', array(
-            'account'    => 'id',
-            'view_personnage' => 'idPersonnage',
+            'account' => 'id',
+            'view_personnage' => 'idPersonnage'
         ));
     }
 }
